@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import LinkAction from '../../shared/ui/link-action/LinkAction'
 import { SVG } from '../../shared/ui/svg/SVG'
@@ -8,9 +8,21 @@ import { observer } from 'mobx-react-lite'
 import store from '../../shared/store'
 import { ActiveButton } from '../../shared/ui/button'
 
-const OrderFood = observer(({isOrderSubmitted}: { isOrderSubmitted: boolean }) => {
+const OrderFood = observer(({ isOrderSubmitted }: { isOrderSubmitted: boolean }) => {
   const { navBarStore } = store
   const [isCancelModalOpen, setIsCancelModalOpen] = useState(false)
+  const [wishes, setWishes] = useState<string>('')
+
+  useEffect(() => {
+    const savedWishes = localStorage.getItem('wishes')
+    if (savedWishes) {
+      setWishes(savedWishes)
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('wishes', wishes)
+  }, [wishes])
 
   const navigate = useNavigate();
 
@@ -47,8 +59,15 @@ const OrderFood = observer(({isOrderSubmitted}: { isOrderSubmitted: boolean }) =
         <div className="b-page-box b-page-box--big b-page--mt32">
           <div className="b-page-box__title"><b>Пожелания</b></div>
           <div className="b-page-box-line"></div>
-          <div className="b-page-box__subtittle b-page-box__subtittle--opacity70">Хотим прийти со своим тортом. Торт пусть
-            подадут в 19:00 с феерверками.</div>
+          <textarea
+            className="b-page-box__subtittle b-page-box__subtittle--opacity70"
+            value={wishes}
+            onChange={(e) => setWishes(e.target.value)}
+            placeholder="Введите ваши пожелания"
+            rows={3}
+            disabled={isOrderSubmitted}
+            style={{ width: '100%', border: 'none', resize: 'none', background: 'transparent' }}
+          />
         </div>
 
         <div className="b-page-map b-page--mt32">
@@ -91,16 +110,18 @@ const OrderFood = observer(({isOrderSubmitted}: { isOrderSubmitted: boolean }) =
 
         <div className="links--action b-page--mt48">
 
-          <ActiveButton
-            text='Отменить'
-            style={{
-              color: '#fff',
-              background: '#6C452B',
-              border: 'none',
-              width: '100%',
-            }}
-            onClick={handleCancelClick}
-          />
+          {isOrderSubmitted &&
+            <ActiveButton
+              text='Отменить'
+              style={{
+                color: '#fff',
+                background: '#6C452B',
+                border: 'none',
+                width: '100%',
+              }}
+              onClick={handleCancelClick}
+            />
+          }
 
           <LinkAction
             text='Позвонить в ресторан'

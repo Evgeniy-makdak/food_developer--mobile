@@ -132,14 +132,14 @@ const MenuCard = memo(function MenuCard({
                 }}
               />
             ) : (
-              <div
+              <button
                 className="dish-btn"
                 onClick={handleQuickAddToCart}
                 style={{ cursor: 'pointer' }}
                 title="Добавить в корзину"
               >
                 <SVG.PlusIcon />
-              </div>
+              </button>
             )}
 
           </div>
@@ -154,11 +154,11 @@ const MenuCard = memo(function MenuCard({
     const stableId = item.title
       ? item.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
       : 'unknown-dish'
-
     return {
       id: stableId,
       name: item.title || 'Блюдо',
       price: parseInt(item.price) || 800,
+      info: 'info' in item && item.info.length > 0 ? item.info[0].type : 'violet',
       image: '/img/dish1.png'
     }
   }, [item.title, item.price])

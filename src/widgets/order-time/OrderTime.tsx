@@ -1,6 +1,10 @@
 import './order-time.scss'
+import { useState } from 'react'
 
 export default function OrderTime() {
+  const [selectedTime, setSelectedTime] = useState<string | null>(null);
+  const times = ['12:40', '12:50', '13:00', '13:10', '13:20'];
+
   return (
     <section>
       <div className="b-page-box b-page-box--specific b-page--mt32">
@@ -14,11 +18,19 @@ export default function OrderTime() {
         </div>
         <div className="b-page-box-line b-page-box-line--small8 b-page--mr12"></div>
         <div className="b-page-slider b-page--mt16 b-page-slider--bias">
-          <div className="b-page-slider__time">12:40</div>
-          <div className="b-page-slider__time">12:50</div>
-          <div className="b-page-slider__time">13:00</div>
-          <div className="b-page-slider__time">13:10</div>
-          <div className="b-page-slider__time">13:20</div>
+          {times.map(time => (
+            <div 
+              key={time}
+              className="b-page-slider__time" 
+              style={{ 
+                backgroundColor: selectedTime === time ? 'rgb(108, 69, 43)' : '',
+                color: selectedTime === time ? 'white' : ''
+              }}
+              onClick={() => setSelectedTime(time)}
+            >
+              {time}
+            </div>
+          ))}
         </div>
       </div>
     </section>

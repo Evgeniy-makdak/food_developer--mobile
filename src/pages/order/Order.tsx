@@ -8,6 +8,7 @@ export default function Order() {
   const totalItems = getTotalItems()
   const totalPrice = getTotalPrice()
 
+  console.log(cart, 'cart')
   // Если корзина пуста, показываем сообщение
   if (totalItems === 0) {
     return (

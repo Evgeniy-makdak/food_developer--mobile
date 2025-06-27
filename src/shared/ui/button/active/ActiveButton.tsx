@@ -1,10 +1,11 @@
 
 
 
-export default function ActiveButton({ text, style, onClick }: { text: string, style?: React.CSSProperties, onClick?: () => void }) {
+export default function ActiveButton({ text, style, onClick }: { text: string, style?: React.CSSProperties, onClick?: () => void}) {
   return (
     <button
       onClick={onClick}
+
       style={{
         ...style,
         borderRadius: '100px',

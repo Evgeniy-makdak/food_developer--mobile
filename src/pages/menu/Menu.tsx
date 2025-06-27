@@ -22,7 +22,7 @@ export default function Menu() {
 
   return (
     <div className="menu--page">
-      <LYHeader text="Love You"/>
+      <LYHeader text="Love You" />
       <SliderHeader data={topNavMeuItems} />
       <SearchField
         value={searchQuery}

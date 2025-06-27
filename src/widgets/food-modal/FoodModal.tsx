@@ -12,6 +12,7 @@ interface FoodModalProps {
     id: string
     name: string
     price: number
+    info: string
     image: string
   }
 }
@@ -42,7 +43,7 @@ export default function FoodModal({ isOpen, onClose, dishData }: FoodModalProps)
           dishData={dishData}
         />
 
-        <DishSwitcherInfo />
+        <DishSwitcherInfo info={dishData?.info}/>
 
         <DishCompound />
 
