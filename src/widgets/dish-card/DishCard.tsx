@@ -28,7 +28,7 @@ export default function DishCard({
       </div>
       <div className="b-page-box-flex b-page--mt12">
         <div className="dish-info-wrapper">
-          <div className="dish__tittle">{dishData?.name || "Голубцы с мясом"}</div>
+          <div className="dish__tittle">{dishData?.name}</div>
           <div className="dish__subtitle b-page--mt8">Обеденное (350 г.)</div>
         </div>
         <a href="#" className="dish-grade-link">
