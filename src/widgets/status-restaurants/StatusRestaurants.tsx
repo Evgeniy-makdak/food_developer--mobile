@@ -1,10 +1,7 @@
+import { StatusRestaurantsProps } from '../../shared/types/types'
 import { Status } from '../../shared/ui'
 import './status-restaurants.scss'
 
-interface StatusRestaurantsProps {
-  status?: 'waiting' | 'cancelled' | 'completed'
-  activeTab?: string
-}
 
 export default function StatusRestaurants({ status = 'waiting', activeTab = 'current' }: StatusRestaurantsProps) {
   // Определяем статус на основе активного таба

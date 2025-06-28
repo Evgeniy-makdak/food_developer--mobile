@@ -38,9 +38,9 @@ export const useCurrentButton = ({
     // Вызываем callback если он передан
     onQuantityChange?.(newQuantity, totalPrice)
   }
+  
 
   const totalPrice = basePrice * quantity
-
   return {
     quantity,
     totalPrice,

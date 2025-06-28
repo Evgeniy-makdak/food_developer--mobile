@@ -1,12 +1,8 @@
 import { useEffect } from 'react'
 import './modal.scss'
+import { ModalProps } from '../../types/types'
 
-interface ModalProps {
-  isOpen: boolean
-  onClose: () => void
-  children: React.ReactNode
-  className?: string
-}
+
 
 export default function Modal({ isOpen, onClose, children, className = '' }: ModalProps) {
   // Закрытие по Escape

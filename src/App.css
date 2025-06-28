@@ -150,3 +150,11 @@ a {
 .w-100{
   width: 100% !important;
 }
+
+b-page--mt8{
+  margin-top: 8px;
+}
+
+.pl-16{
+  padding-left: 16px;
+}

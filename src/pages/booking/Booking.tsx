@@ -2,24 +2,11 @@ import { useState, useEffect } from 'react'
 import { topNavItems } from '../../app/config/config'
 import { PrevHeader, SliderHeader, StatusRestaurants, StatusOrder, CurrentBooking, OrderFood, BookingOrderComposition } from '../../widgets'
 import { cartUtils } from '../../features/cartUtils'
-import { CartItem } from '../../shared/types/types'
+import { Order } from '../../shared/types/types'
 
 import './booking.scss'
 
-interface Order {
-  id: string
-  items: CartItem[]
-  comment?: string
-  booking?: {
-    date: string
-    time: string
-    persons: number
-  }
-  status: 'current' | 'submitted' | 'cancelled' | 'completed'
-  cancelReason?: string | null
-  createdAt: string
-  updatedAt?: string
-}
+
 
 export default function Booking() {
   const [isOrderSubmitted, setIsOrderSubmitted] = useState(false)
@@ -84,9 +71,9 @@ export default function Booking() {
     loadOrders()
   }, [activeTab, isOrderSubmitted])
 
-  const handleTabChange = (tabId: string) => {
-    setActiveTab(tabId)
-  }
+  // const handleTabChange = (tabId: string) => {
+  //   setActiveTab(tabId)
+  // }
 
   // Определяем, показывать ли заказы для текущего таба
   const shouldShowOrders = () => {
@@ -99,7 +86,7 @@ export default function Booking() {
   return (
     <div className='booking--page'>
       <PrevHeader />
-      <SliderHeader data={topNavItems} onTabChange={handleTabChange} />
+      <SliderHeader data={topNavItems} activeTab={activeTab} setActiveTab={setActiveTab} />
       <StatusRestaurants activeTab={activeTab} />
       <div className="wrapper-status-order">
         <StatusOrder />
@@ -167,7 +154,7 @@ export default function Booking() {
       )}
 
       {/* Показываем кнопки действий только для текущих заказов */}
-      {activeTab === 'current' && <OrderFood isOrderSubmitted={isOrderSubmitted} />}
+      {(activeTab === 'current' || activeTab === 'cancelled') && <OrderFood activeTab={activeTab} setActiveTab={setActiveTab} isOrderSubmitted={isOrderSubmitted} />}
     </div>
   )
 }

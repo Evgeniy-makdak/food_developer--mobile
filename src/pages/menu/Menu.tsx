@@ -5,7 +5,7 @@ import { LYHeader, SliderHeader, SearchField, MenuCards } from "../../widgets";
 export default function Menu() {
   const [searchQuery, setSearchQuery] = useState("")
   const [debouncedSearchQuery, setDebouncedSearchQuery] = useState("")
-
+  const [activeTab, setActiveTab] = useState("current")
   // Дебаунсинг поискового запроса
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -23,7 +23,7 @@ export default function Menu() {
   return (
     <div className="menu--page">
       <LYHeader text="Love You" />
-      <SliderHeader data={topNavMeuItems} />
+      <SliderHeader data={topNavMeuItems} activeTab={activeTab} setActiveTab={setActiveTab} />
       <SearchField
         value={searchQuery}
         onChange={handleSearchChange}

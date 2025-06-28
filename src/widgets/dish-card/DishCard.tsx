@@ -1,18 +1,9 @@
+import { DishCardProps } from "../../shared/types/types";
 import { CurrentButton, DishPrice, SVG } from "../../shared/ui";
 import CustomSwiper from "../../shared/ui/swiper/Swiper";
 import './dish-card.scss'
 
-interface DishCardProps {
-  quantity?: number
-  totalPrice?: number
-  onQuantityChange?: (newQuantity: number) => void
-  dishData?: {
-    id: string
-    name: string
-    price: number
-    image: string
-  }
-}
+
 
 export default function DishCard({
   quantity = 1,
@@ -28,7 +19,7 @@ export default function DishCard({
       </div>
       <div className="b-page-box-flex b-page--mt12">
         <div className="dish-info-wrapper">
-          <div className="dish__tittle">{dishData?.name}</div>
+          <div className="dish__tittle">{dishData?.name || "Голубцы с мясом"}</div>
           <div className="dish__subtitle b-page--mt8">Обеденное (350 г.)</div>
         </div>
         <a href="#" className="dish-grade-link">

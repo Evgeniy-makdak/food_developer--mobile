@@ -1,11 +1,7 @@
 import { MenuCard } from '../../shared/ui'
-import { ExtendedBasketItem } from '../../shared/types/types'
+import { BasketCardsProps, ExtendedBasketItem } from '../../shared/types/types'
 
-interface BasketCardsProps {
-  items: ExtendedBasketItem[]
-  onRemoveItem?: (id: string) => void
-  onUpdateQuantity?: (id: string, newQuantity: number) => void
-}
+
 
 export default function BasketCards({
   items,

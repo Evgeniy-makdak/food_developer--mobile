@@ -1,17 +1,8 @@
 import { LinkAction } from '../../shared/ui'
 import { useCart } from '../../features'
+import { AddToCardProps } from '../../shared/types/types'
 
-interface AddToCardProps {
-  quantity?: number
-  totalPrice?: number
-  onAddToCart?: () => void
-  dishData?: {
-    id: string
-    name: string
-    price: number
-    image: string
-  }
-}
+
 
 export default function AddToCard({
   quantity = 1,

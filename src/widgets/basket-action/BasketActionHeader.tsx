@@ -1,11 +1,7 @@
 import { SVG } from '../../shared/ui'
-import { ExtendedBasketItem } from '../../shared/types/types'
+import { BasketActionHeaderProps } from '../../shared/types/types'
 
-interface BasketActionHeaderProps {
-  items: ExtendedBasketItem[]
-  totalItems?: number
-  totalPrice?: number
-}
+
 
 export default function BasketActionHeader({
   items,

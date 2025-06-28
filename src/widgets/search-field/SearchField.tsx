@@ -2,11 +2,9 @@ import React from 'react'
 import Input from '../../shared/ui/input/Input'
 import './search-field.scss'
 import { SVG } from '../../shared/ui/svg/SVG'
+import { SearchFieldProps } from '../../shared/types/types'
 
-interface SearchFieldProps {
-  value: string
-  onChange: (query: string) => void
-}
+
 
 export default function SearchField({ value, onChange }: SearchFieldProps) {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

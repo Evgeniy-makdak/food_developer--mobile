@@ -12,8 +12,8 @@ const useNavigationHandler = () => {
         return '/menu';
       case 'orders':
         return '/';
-      case 'backets':
-        return '/backets'; // Добавим позже
+      case 'baskets':
+        return '/baskets'; // Добавим позже
       case 'profile':
         return '/profile'; // Добавим позже
       default:

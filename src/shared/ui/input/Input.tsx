@@ -1,15 +1,7 @@
 
-import React from 'react'
+import { InputProps } from '../../types/types'
 
-interface InputProps {
-  type: string
-  className: string
-  style: React.CSSProperties
-  value: string
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  disabled: boolean
-  text: string
-}
+
 
 export default function Input({ type, className, style, value, onChange, disabled, text }: InputProps) {
   return (

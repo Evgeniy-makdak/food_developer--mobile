@@ -1,12 +1,9 @@
 import { useNavigationHandler } from '../../../../features'
-import { NavItemId } from '../../../types/types';
+import { ButtonCloseProps } from '../../../types/types';
 import { SVG } from '../../svg/SVG'
 import './button-close.scss'
 
-interface ButtonCloseProps {
-  redirectTo: NavItemId
-  onClick?: () => void
-}
+
 
 export default function ButtonClose({ redirectTo, onClick }: ButtonCloseProps) {
   const { handleItemClick } = useNavigationHandler();

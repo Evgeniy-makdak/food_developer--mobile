@@ -8,7 +8,7 @@ import { observer } from 'mobx-react-lite'
 import store from '../../shared/store'
 import { ActiveButton } from '../../shared/ui/button'
 
-const OrderFood = observer(({ isOrderSubmitted }: { isOrderSubmitted: boolean }) => {
+const OrderFood = observer(({ isOrderSubmitted, activeTab, setActiveTab }: { isOrderSubmitted: boolean, activeTab: string, setActiveTab: React.Dispatch<React.SetStateAction<string>> }) => {
   const { navBarStore } = store
   const [isCancelModalOpen, setIsCancelModalOpen] = useState(false)
   const [wishes, setWishes] = useState<string>('')
@@ -31,9 +31,7 @@ const OrderFood = observer(({ isOrderSubmitted }: { isOrderSubmitted: boolean })
     navigate('/menu');
   };
 
-  const handleCancelClick = () => {
-    setIsCancelModalOpen(true)
-  }
+
 
   const handleCancelConfirm = () => {
     // После отмены заказа перенаправляем на главную страницу
@@ -49,8 +47,8 @@ const OrderFood = observer(({ isOrderSubmitted }: { isOrderSubmitted: boolean })
               выбрать удобное для вас время подачи блюд</div>
 
             <div className="b-page-box__btn b-page--mt20 b-page-box__btn--not-border">
-              {/* <Link to="/menu" style={{ textDecoration: 'none', color: 'inherit' }}>Посмотреть меню</Link> */}
-              <button className="btn--default" onClick={() => handleRedirectToMenu()}>Посмотреть меню</button>
+
+              <button className="btn--default" onClick={() => handleRedirectToMenu()}><p className='show-menu'>Посмотреть меню</p></button>
             </div>
           </>
         )}
@@ -94,7 +92,10 @@ const OrderFood = observer(({ isOrderSubmitted }: { isOrderSubmitted: boolean })
               </div>
             </div>
             <div className="b-page-map-wrap__location">
-              <SVG.FoodLocationIcon backgroundColor="#B56C27" foregroundColor="white" />
+              <div className='food-location'>
+                <SVG.FoodLocationIcon />
+
+              </div>
             </div>
             <div className="b-page-map-wrap__pointer">
               <SVG.PersonLocationIcon backgroundColor="#6C452B" foregroundColor="white" />
@@ -110,18 +111,42 @@ const OrderFood = observer(({ isOrderSubmitted }: { isOrderSubmitted: boolean })
 
         <div className="links--action b-page--mt48">
 
-          {isOrderSubmitted &&
+          {(isOrderSubmitted && activeTab !== 'cancelled') &&
             <ActiveButton
-              text='Отменить'
+              text='Отмена'
               style={{
                 color: '#fff',
                 background: '#6C452B',
                 border: 'none',
                 width: '100%',
               }}
-              onClick={handleCancelClick}
+              onClick={() => {
+
+                setIsCancelModalOpen(!isCancelModalOpen)
+              }}
             />
           }
+
+          {
+            activeTab === 'cancelled' && (
+              <ActiveButton
+                text='Забронировать снова'
+                style={{
+                  color: '#fff',
+                  background: '#6C452B',
+                  border: 'none',
+                  width: '100%',
+                }}
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  setActiveTab('current')
+
+                }}
+              />
+            )
+          }
+
+
 
           <LinkAction
             text='Позвонить в ресторан'

@@ -2,12 +2,8 @@ import { useState } from 'react'
 import Modal from '../../shared/ui/modal/Modal'
 import { cartUtils } from '../../features/cartUtils'
 import { useCart } from '../../features'
+import { CancelOrderProps } from '../../shared/types/types'
 
-interface CancelOrderProps {
-  isOpen: boolean
-  onClose: () => void
-  onConfirm?: () => void
-}
 
 export default function CancelOrder({ isOpen, onClose, onConfirm }: CancelOrderProps) {
   const { clearCart } = useCart()

@@ -55,7 +55,7 @@ const NavBar = observer(() => {
                   <SVG.OrderIcon color={item.isActive ? 'white' : '#301207'} />
                 </button>
               )}
-              {item.icon === 'backets' && (
+              {item.icon === 'baskets' && (
                 <button className="btn--default basket-button" onClick={() => handleItemClick(item.id)}>
                   <div className="basket-icon-wrapper">
                     <SVG.BasketIcon

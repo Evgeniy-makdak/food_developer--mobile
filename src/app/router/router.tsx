@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router";
-import { Booking, Layout, Menu, Food, Basket, Order, PayInfo } from "../../pages";
+import { Booking, Layout, Menu, Basket, Order, PayInfo } from "../../pages";
 
 
 
@@ -24,12 +24,9 @@ const router = createBrowserRouter([
       },
     ]
   },
+
   {
-    path: "menu/food",
-    element: <Food />,
-  },
-  {
-    path: "backets",
+    path: "baskets",
     element: <Basket />,
   },
   {

@@ -20,7 +20,7 @@
 
 .b-page-map-wrap__location {
   bottom: 16px;
-  left: 172px;
+  left: 177px;
   position: absolute;
 }
 
@@ -146,8 +146,29 @@
   color: #B56C27;
 }
 
-.links--action{
+.links--action {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.food-location {
+  border-radius: 100px;
+  padding: 6px;
+  width: 44px;
+  height: 44px;
+  background: #b56c27;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0px 10px rgba(181, 108, 39, 0.2);
+}
+
+.show-menu {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  text-align: center;
+  color: #6c452b;
 }

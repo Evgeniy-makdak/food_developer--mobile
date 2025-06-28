@@ -5,10 +5,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './swiper.scss'
+import { CustomSwiperProps } from '../../types/types';
 
-interface CustomSwiperProps {
-  images: string[]
-}
+
 
 const CustomSwiper = memo(({ images }: CustomSwiperProps) => {
   // Мемоизируем слайды
@@ -33,7 +32,7 @@ const CustomSwiper = memo(({ images }: CustomSwiperProps) => {
     modules: [Pagination],
     spaceBetween: 0,
     slidesPerView: 1,
-    lazy: true,
+    lazy: "true",
   }), [])
 
   return (

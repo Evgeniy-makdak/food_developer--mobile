@@ -1,11 +1,9 @@
 import { useState } from 'react'
 import { SVG } from '../../svg/SVG'
 import './like-button.scss'
+import { LikeButtonProps } from '../../../types/types'
 
-interface LikeButtonProps {
-  initialLiked?: boolean
-  onLikeChange?: (isLiked: boolean) => void
-}
+
 
 export default function LikeButton({
   initialLiked = false,

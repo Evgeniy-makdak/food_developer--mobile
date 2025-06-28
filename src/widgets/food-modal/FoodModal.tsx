@@ -4,18 +4,9 @@ import { AddToCard, DishSwitcherInfo, LYHeader } from '../../widgets'
 import DishCard from '../../widgets/dish-card/DishCard'
 import { useCurrentButton, useCart } from '../../features'
 import './food-modal.scss'
+import { FoodModalProps } from '../../shared/types/types'
 
-interface FoodModalProps {
-  isOpen: boolean
-  onClose: () => void
-  dishData?: {
-    id: string
-    name: string
-    price: number
-    info: string
-    image: string
-  }
-}
+
 
 export default function FoodModal({ isOpen, onClose, dishData }: FoodModalProps) {
   const basePrice = dishData?.price || 800

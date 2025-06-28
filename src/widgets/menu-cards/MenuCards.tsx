@@ -1,12 +1,10 @@
 import { memo, useMemo } from 'react'
 import { lunch_menu_items } from '../../app/config/config'
-import { LunchMenuItem } from '../../shared/types/types'
+import { LunchMenuItem, MenuCardsProps } from '../../shared/types/types'
 import './menu-cards.scss'
 import MenuCard from '../menu-card/MenuCard'
 
-interface MenuCardsProps {
-  searchQuery?: string
-}
+
 
 const MenuCards = memo(({ searchQuery = "" }: MenuCardsProps) => {
   // Фильтруем и мемоизируем список карточек

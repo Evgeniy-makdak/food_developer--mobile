@@ -1,9 +1,8 @@
+import { StatusProps } from '../../types/types'
 import { SVG } from '../svg/SVG'
 import './status.scss'
 
-interface StatusProps {
-  status?: 'waiting' | 'cancelled' | 'completed'
-}
+
 
 export default function Status({ status = 'waiting' }: StatusProps) {
   const getStatusConfig = () => {

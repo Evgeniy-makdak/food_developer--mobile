@@ -3,7 +3,7 @@ import { BottomNavItem, LunchMenuItem, TopNavItem } from "../../shared/types/typ
 export const bottomNavItems: BottomNavItem[] = [
   { id: 'menu', icon: 'menu', label: 'Меню', isActive: false },
   { id: 'orders', icon: 'orders', label: 'Заказы', isActive: true },
-  { id: 'backets', icon: 'backets', label: 'Корзина', isActive: false },
+  { id: 'baskets', icon: 'baskets', label: 'Корзина', isActive: false },
   { id: 'profile', icon: 'profile', label: 'Профиль', isActive: false }
 ];
 
@@ -38,7 +38,7 @@ export const lunch_menu_items: LunchMenuItem[] = [
   },
   {
     subtitle: "Обеденное (350 г.)",
-    title: "Голубцы с мясом2",
+    title: "Голубцы с мясом3",
     info: [
       {
         text: "Нет аллергенов",
@@ -52,7 +52,7 @@ export const lunch_menu_items: LunchMenuItem[] = [
     price: "800"
   },
   {
-    title: "Голубцы с мясом3",
+    title: "Голубцы с мясом2",
     subtitle: "Обеденное (350 г.)",
     info: [
       {
@@ -66,38 +66,8 @@ export const lunch_menu_items: LunchMenuItem[] = [
     ],
     price: "800"
   },
-  {
-    title: "Голубцы с мясом4",
-    subtitle: "Обеденное (350 г.)",
-    info: [
-      {
-        text: "Есть аллергены",
-        type: "violet"
-      },
-      {
-        text: "325 Kkal",
-        type: "rose"
-      }
-    ],
-    price: "800"
-  },
-  {
-    title: "Голубцы с мясом5",
-    subtitle: "Обеденное (350 г.)",
-    info: [
-      {
-        text: "Есть аллергены",
-        type: "violet"
-      },
-      {
-        text: "325 Kkal",
-        type: "rose"
-      }
-    ],
-    price: "800"
-  },
-  {
-    title: "Курица с рисом",
+    {
+    title: "Пирог",
     subtitle: "Обеденное (350 г.)",
     info: [
       {
@@ -113,3 +83,30 @@ export const lunch_menu_items: LunchMenuItem[] = [
   },
 
 ];
+
+// export const basket_items = [
+//   {
+//     id: 1,
+//     title: "Голубцы с мясом3",
+//     subtitle: "Обеденное (350 г.)",
+//     price: "800"
+//   },
+//     {
+//     id: 2,
+//     title: "Голубцы с мясом",
+//     subtitle: "Обеденное (350 г.)",
+//     price: "800"
+//   },
+//     {
+//     id: 3,
+//     title: "Голубцы с мясом",
+//     subtitle: "Обеденное (350 г.)",
+//     price: "800"
+//   },
+//     {
+//     id: 4,
+//     title: "Голубцы с мясом",
+//     subtitle: "Обеденное (350 г.)",
+//     price: "800"
+//   },
+// ]

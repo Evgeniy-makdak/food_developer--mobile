@@ -1,20 +1,14 @@
 import { useState, useCallback, memo, useMemo } from 'react'
-import { BasketItem, LunchMenuhInfoItem, LunchMenuItem, ExtendedBasketItem } from '../../shared/types/types'
+import { BasketItem, LunchMenuhInfoItem, LunchMenuItem, ExtendedBasketItem, MenuCardProps } from '../../shared/types/types'
 import CustomSwiper from '../../shared/ui/swiper/Swiper'
 import { SVG } from '../../shared/ui/svg/SVG'
 import { CurrentButton, DishGrade, DishPrice } from '../../shared/ui/index'
 import { FoodModal } from '../../widgets'
 import { useCart } from '../../features'
+import { DEFAULT_IMAGES } from '../../shared/constants/constants'
 
 // Статический массив изображений для избежания создания нового массива при каждом рендере
-const DEFAULT_IMAGES = ["/img/dish1.png", "/img/dish2.png", "/img/dish3.png"]
 
-interface MenuCardProps {
-  item: LunchMenuItem | BasketItem | ExtendedBasketItem
-  additionalParams?: string
-  onRemoveItem?: (id: string) => void
-  onUpdateQuantity?: (id: string, newQuantity: number) => void
-}
 
 const MenuCard = memo(function MenuCard({
   item,

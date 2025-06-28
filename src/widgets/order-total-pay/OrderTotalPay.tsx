@@ -1,8 +1,7 @@
+import { OrderTotalPayProps } from '../../shared/types/types'
 import './order-total-pay.scss'
 
-interface OrderTotalPayProps {
-  totalPrice: number
-}
+
 
 export default function OrderTotalPay({ totalPrice }: OrderTotalPayProps) {
   const formatPrice = (price: number) => {

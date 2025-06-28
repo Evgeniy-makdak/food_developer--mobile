@@ -1,16 +1,7 @@
 import { observer } from "mobx-react-lite";
 import { ButtonClose, DownloadButton, LikeButton } from "../../shared/ui";
+import { LYHeaderProps } from "../../shared/types/types";
 
-
-
-
-
-
-interface LYHeaderProps {
-  additionalIcon?: string
-  onClose?: () => void
-  text: string
-}
 
 const LYHeader = observer(({ additionalIcon, onClose, text }: LYHeaderProps) => {
 

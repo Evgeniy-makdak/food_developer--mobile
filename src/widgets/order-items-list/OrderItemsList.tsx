@@ -1,9 +1,7 @@
-import { CartItem } from '../../shared/types/types'
+import { OrderItemsListProps } from '../../shared/types/types'
 import './order-items-list.scss'
 
-interface OrderItemsListProps {
-  items: CartItem[]
-}
+
 
 export default function OrderItemsList({ items }: OrderItemsListProps) {
   const formatPrice = (price: number) => {

@@ -1,10 +1,7 @@
-import { CartItem } from '../../shared/types/types'
+import { OrderCompositionProps } from '../../shared/types/types'
 import './order-composition.scss'
 
-interface OrderCompositionProps {
-  items: CartItem[]
-  totalItems: number
-}
+
 
 export default function OrderComposition({ items, totalItems }: OrderCompositionProps) {
   const getItemsText = (count: number) => {

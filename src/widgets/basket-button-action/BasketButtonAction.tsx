@@ -1,11 +1,9 @@
 import { useNavigationHandler } from '../../features';
+import { BasketButtonActionProps } from '../../shared/types/types';
 import { LinkAction } from '../../shared/ui'
 import { ActiveButton } from '../../shared/ui/button';
 
-interface BasketButtonActionProps {
-  totalPrice?: number
-  totalItems?: number
-}
+
 
 export default function BasketButtonAction({
   totalPrice = 0,
